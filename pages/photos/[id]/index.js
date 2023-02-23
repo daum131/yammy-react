@@ -22,11 +22,12 @@ const index = ( { photo }) => {
   )
 }
 
-//prop넘기기
+//prop넘기기, context로 아래 geStaticPath에서 id를 가져옴           
+// context 안의 params: {id: id.toString() }
 
-export const getStaticProps = async ()=>{
-
-    const res = await fetch('https://jsonplaceholder.typicode.com/photos/1');
+export const getStaticProps = async (context)=>{
+    const {id} = context.params;
+    const res = await fetch( `https://jsonplaceholder.typicode.com/photos/${id}`);
     const photo = await res.json();
 
     return {

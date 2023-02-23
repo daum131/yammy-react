@@ -1,9 +1,9 @@
 import HeadInfo from "../components/Headinfo";
 import Image from "next/image";
 import photosStyles from "../styles/photos.module.scss";
+import Link from "next/link";
 
-
-const photos = ({photos}) => {
+const photos = ({ photos }) => {
   return (
     <>
       <div>
@@ -11,12 +11,19 @@ const photos = ({photos}) => {
         <h1>my photos </h1>
         <ul className={photosStyles.photos}>
           {photos.map((photo) => (
-
-            <li key={photo.id} id={photo.id}>
-              <Image src={photo.thumbnailUrl} width={100} height={100} alt={photo.title} />
-              <span>{photo.title}</span>
-            </li>
- 
+            <Link href ={ `/photos/${photo.id}`}>
+              
+                <li key={photo.id} id={photo.id}>
+                  <Image
+                    src={photo.thumbnailUrl}
+                    width={100}
+                    height={100}
+                    alt={photo.title}
+                  />
+                  <span>{photo.title}</span>
+                </li>
+  
+            </Link>
           ))}
         </ul>
       </div>
@@ -37,4 +44,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default photos
+export default photos;
