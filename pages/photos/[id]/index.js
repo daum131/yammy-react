@@ -4,14 +4,14 @@ import Link from 'next/link'
 
 
 const index = ( { photo }) => {
-    const {title, url} = photo;
+    const {title, url, id} = photo;
 
 
   return (
     <div>
         <h2>image</h2>
          <div>
-            <Image src ={url} width={500} height={500}/>
+            <Image src ={url} width={500} height={500} alt={title}/>
             <span>{title}</span>
 
         </div>

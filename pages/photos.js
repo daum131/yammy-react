@@ -11,9 +11,9 @@ const photos = ({ photos }) => {
         <h1>my photos </h1>
         <ul className={photosStyles.photos}>
           {photos.map((photo) => (
-            <Link href ={ `/photos/${photo.id}`}>
+            <Link href ={ `/photos/${photo.id}`} key={photo.id}>
               
-                <li key={photo.id} id={photo.id}>
+                <li id={photo.id}>
                   <Image
                     src={photo.thumbnailUrl}
                     width={100}
